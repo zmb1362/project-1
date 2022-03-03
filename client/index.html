@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>League Finder</title>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.6.0/webcomponents-loader.min.js"></script>
+  <script type="module" src="src/main.js"></script>
+  <script type="module" src="src/app.js"></script>
+  <script type="module" src="src/match-info.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <nav class="navbar has-shadow is-white">
+    <div class="navbar-brand">
+      <a href="" class="navbar-item">
+        <i class="fas fa-gamepad"></i>
+      </a>
+      <a class="navbar-burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu" id="nav-links">
+      <div class="navbar-start">
+        <a href="" class="navbar-item is-active">App</a>
+      </div>
+    </div>
+  </nav>
+  <div></div>
+
+  <section class="section">
+    <div class="container has-text-centered">
+      <h1 class="title is-size-3">Save or Load Data</h1>
+      <h1 class="subtitle is-size-5 is-italic">Type in a save key!</h1>
+      <div class="control">
+        <input class="input is-medium" style="width: 50%;" type="text" id="input-text">
+        <button class="button is-dark is-medium" id="post-button" action="/addChamp" method="post">Save</button>
+        <button class="button is-dark is-medium" id="get-button" action="/getChamps" method="get">Load</button>
+      </div>    
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container box has-shadow is-white" id="summonerInfo">
+      <h1 id="response-info" class="title is-size-2 has-text-centered"></h1>
+      <div class="columns">
+        <div class="column">
+          <div id="my-champs-list" class="container has-text-centered">
+            <h1 id="my-champs-header" class="title is-size-3">My Team</h1>
+            <div id="my-champs"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div id="all-champs-list" class="container has-text-centered">
+            <h1 id="match-header" class="title is-size-3">All Champs</h1>
+            <div id="all-champs"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const addChamp = (id) => {
+        console.log(id);
+    }
+  </script>
+</body>
+</html>
