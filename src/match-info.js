@@ -1,4 +1,4 @@
-const template = document.createElement("template");
+const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host{
@@ -20,34 +20,32 @@ template.innerHTML = `
 <div style="clear: both;"></div>
 `;
 
-class MatchInfo extends HTMLElement{
-    constructor(){
-      super();
-      this.attachShadow({mode: "open"});
-      
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+class MatchInfo extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
 
-      this.imgSource = "";
-      this.champName = "";
-      this.championTitle = "";
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-      this.matchInfo = this.shadowRoot.querySelector("#matchInfo");
-      this.champIcon = this.shadowRoot.querySelector("#champIcon");
-      this.name = this.shadowRoot.querySelector("#name");
-      this.champTitle = this.shadowRoot.querySelector("#champTitle");
-    }
+    this.imgSource = '';
+    this.champName = '';
+    this.championTitle = '';
 
-    connectedCallback() {
-        this.render();
-    }
+    this.matchInfo = this.shadowRoot.querySelector('#matchInfo');
+    this.champIcon = this.shadowRoot.querySelector('#champIcon');
+    this.name = this.shadowRoot.querySelector('#name');
+    this.champTitle = this.shadowRoot.querySelector('#champTitle');
+  }
 
-    render() {
-        this.champIcon.src = this.imgSource;
-        this.name.innerHTML = this.champName;
-        this.champTitle.innerHTML = this.championTitle;
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    
-} 
-	
+  render() {
+    this.champIcon.src = this.imgSource;
+    this.name.innerHTML = this.champName;
+    this.champTitle.innerHTML = this.championTitle;
+  }
+}
+
 customElements.define('match-info', MatchInfo);

@@ -16,29 +16,22 @@ const getChamps = (request, response) => {
     champs,
   };
 
-  console.log(responseJSON);
-
   respondJSON(request, response, 200, responseJSON);
 };
 
-const getChampsMeta = (request, response) => {
-  return respondJSONMeta(request, response, 200);
-};
+const getChampsMeta = (request, response) => respondJSONMeta(request, response, 200);
 
 const addChamp = (request, response, body) => {
   const responseJSON = {
     message: 'Missing Key',
-  }
+  };
 
-  console.log(body);
-
-  if (!body.id)
-  {
+  if (!body.id) {
     responseJSON.id = 'missingParams';
     return respondJSON(request, response, 400, responseJSON);
   }
 
-  let responseCode = 204
+  let responseCode = 204;
 
   if (!champs[body.id]) {
     responseCode = 201;
@@ -65,9 +58,7 @@ const notReal = (request, response) => {
   respondJSON(request, response, 404, responseJSON);
 };
 
-const notRealMeta = (request, response) => {
-  return respondJSONMeta(request, response, 404);
-};
+const notRealMeta = (request, response) => respondJSONMeta(request, response, 404);
 
 module.exports = {
   getChamps,

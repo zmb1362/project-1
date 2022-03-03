@@ -1,4 +1,4 @@
-const template = document.createElement("template");
+const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host{
@@ -19,34 +19,34 @@ template.innerHTML = `
 <div style="clear: both;"></div>
 `;
 
-class SearchResult extends HTMLElement{
-    constructor(){
-      super();
-      this.attachShadow({mode: "open"});
-      
-      this.shadowRoot.appendChild(template.content.cloneNode(true));
+class SearchResult extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
 
-      this.summName = "";
-      this.imgSource = "";
-      this.summLevel = "";
-      this.summRank = "";
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-      this.name = this.shadowRoot.querySelector("#name");
-      this.summonerIcon = this.shadowRoot.querySelector("#summonerIcon");
-      this.level = this.shadowRoot.querySelector("#level");
-      this.rank = this.shadowRoot.querySelector("#rank");
-    }
+    this.summName = '';
+    this.imgSource = '';
+    this.summLevel = '';
+    this.summRank = '';
 
-    connectedCallback() {
-        this.render();
-    }
+    this.name = this.shadowRoot.querySelector('#name');
+    this.summonerIcon = this.shadowRoot.querySelector('#summonerIcon');
+    this.level = this.shadowRoot.querySelector('#level');
+    this.rank = this.shadowRoot.querySelector('#rank');
+  }
 
-    render() {
-        this.name.innerHTML = this.summName;
-        this.summonerIcon.src = this.imgSource;
-        this.level.innerHTML = "Level: " + this.summLevel;
-        this.rank.innerHTML = this.summRank;
-    }
-} 
-	
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.name.innerHTML = this.summName;
+    this.summonerIcon.src = this.imgSource;
+    this.level.innerHTML = `Level: ${this.summLevel}`;
+    this.rank.innerHTML = this.summRank;
+  }
+}
+
 customElements.define('search-result', SearchResult);
