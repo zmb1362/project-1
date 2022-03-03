@@ -124,6 +124,8 @@ function getChampInfo(id) {
     if (champList[champ].key === id) {
       return champList[champ].name;
     }
+
+    return null;
   });
 }
 
